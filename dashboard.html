@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="navbar">
+    <a href="/dashboard">Dashboard</a>
+    <a href="/employees">Employees</a>
+    <a href="/add_employee">Add Employee</a>
+    <a href="/logout">Logout</a>
+</div>
+
+<div class="container">
+
+    <div class="dashboard-box">
+        <div class="box">
+            <h2>Total Employees</h2>
+            <h1>{{ total }}</h1>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="card">
+        <h2>Recent Employees</h2>
+
+        <table class="table">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Salary</th>
+            </tr>
+
+            {% for emp in employees %}
+            <tr>
+                <td>{{ emp[0] }}</td>
+                <td>{{ emp[1] }}</td>
+                <td>{{ emp[3] }}</td>
+                <td>{{ emp[4] }}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+</div>
+
+</body>
+</html>
+
+
